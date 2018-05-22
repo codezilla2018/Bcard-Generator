@@ -1,5 +1,9 @@
 <?php
 $name = $_GET['name'];
+$name = $_GET['name'];
+$name = $_GET['name'];
+$name = $_GET['name'];
+$name = $_GET['name'];
 $message = "Welcome to Kist, $name";
 $length = strlen($message) * 9.3;
 $image = imagecreate($length,20);
