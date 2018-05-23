@@ -48,6 +48,5 @@ $codeContents .= 'ORG:'.$website."\n";
     // generating 
     QRcode::png($codeContents, $tempDir.'026.png', QR_ECLEVEL_L, 3); 
 
-    // displaying 
-    echo '<img src="'.EXAMPLE_TMP_URLRELPATH.'026.png" />'; 
+  
 ?>
