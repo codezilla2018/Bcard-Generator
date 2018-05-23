@@ -4,7 +4,7 @@
     include('connection.php'); 
 
     // how to build raw content - QRCode with detailed Business Card (VCard) 
-$count=1;
+
 $sel_query="Select * from newmeduser ORDER BY id desc;";
 $result = mysqli_query($connection,$sel_query);
 if(!$result){
@@ -19,7 +19,9 @@ $company=$_POST["company"];
 $email=$_POST["email"];
 $website=$_POST["website"];
 $phonenumber=$_POST["phonenumber"];
-<?php $count++; } ?>
+<?php  } ?>
+function QrCodeForCard
+{
     $tempDir = EXAMPLE_TMP_SERVERPATH; 
 
    
@@ -46,7 +48,8 @@ $codeContents .= 'ORG:'.$website."\n";
     $codeContents .= 'END:VCARD'; 
 
     // generating 
-    QRcode::png($codeContents, $tempDir.'026.png', QR_ECLEVEL_L, 3); 
-
+   $QR= QRcode::png($codeContents, $tempDir.'026.png', QR_ECLEVEL_L, 3); 
+return $QR;
+}
   
 ?>
