@@ -4,48 +4,41 @@
     include('connection.php'); 
 
     // how to build raw content - QRCode with detailed Business Card (VCard) 
-
+$count=1;
+$sel_query="Select * from newmeduser ORDER BY id desc;";
+$result = mysqli_query($connection,$sel_query);
+if(!$result){
+	die('No data');
+}
+while($row = mysqli_fetch_array($result)) { ?>
+$firstname=$_POST["firstname"];
+$lastname=$_POST["lastname"];
+$address=$_POST["address"];
+$title=$_POST["title"];
+$company=$_POST["company"];
+$email=$_POST["email"];
+$website=$_POST["website"];
+$phonenumber=$_POST["phonenumber"];
+<?php $count++; } ?>
     $tempDir = EXAMPLE_TMP_SERVERPATH; 
 
-    // here our data 
-    $name         = 'John Doe'; 
-    $sortName     = 'Doe;John'; 
-    $phone        = '(049)012-345-678'; 
-    $phonePrivate = '(049)012-345-987'; 
-    $phoneCell    = '(049)888-123-123'; 
-    $orgName      = 'My Company Inc.'; 
-
-    $email        = 'john.doe@example.com'; 
-
-    // if not used - leave blank! 
-    $addressLabel     = 'Our Office'; 
-    $addressPobox     = ''; 
-    $addressExt       = 'Suite 123'; 
-    $addressStreet    = '7th Avenue'; 
-    $addressTown      = 'New York'; 
-    $addressRegion    = 'NY'; 
-    $addressPostCode  = '91921-1234'; 
-    $addressCountry   = 'USA'; 
+   
 
     // we building raw data 
     $codeContents  = 'BEGIN:VCARD'."\n"; 
     $codeContents .= 'VERSION:2.1'."\n"; 
-    $codeContents .= 'N:'.$sortName."\n"; 
-    $codeContents .= 'FN:'.$name."\n"; 
-    $codeContents .= 'ORG:'.$orgName."\n"; 
-
-    $codeContents .= 'TEL;WORK;VOICE:'.$phone."\n"; 
-    $codeContents .= 'TEL;HOME;VOICE:'.$phonePrivate."\n"; 
-    $codeContents .= 'TEL;TYPE=cell:'.$phoneCell."\n"; 
+    $codeContents .= 'N:'.$firstnameName."\n"; 
+    $codeContents .= 'FN:'.$lastnamename."\n"; 
+    $codeContents .= 'ORG:'.$company."\n"; 
+$codeContents .= 'ORG:'.$title."\n"; 
+$codeContents .= 'ORG:'.$website."\n"; 
+    $codeContents .= 'TEL;WORK;VOICE:'.$phonenumber."\n"; 
+    
 
     $codeContents .= 'ADR;TYPE=work;'. 
         'LABEL="'.$addressLabel.'":' 
-        .$addressPobox.';' 
-        .$addressExt.';' 
-        .$addressStreet.';' 
-        .$addressTown.';' 
-        .$addressPostCode.';' 
-        .$addressCountry 
+        .$address. 
+        
     ."\n"; 
 
     $codeContents .= 'EMAIL:'.$email."\n"; 
