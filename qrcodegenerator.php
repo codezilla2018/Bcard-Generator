@@ -20,7 +20,7 @@ $email=$_POST["email"];
 $website=$_POST["website"];
 $phonenumber=$_POST["phonenumber"];
 <?php  } ?>
-function QrCodeForCard
+public function QrCodeForCard()
 {
     $tempDir = EXAMPLE_TMP_SERVERPATH; 
 
