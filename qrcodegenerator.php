@@ -1,7 +1,7 @@
 <?php 
 
-    include('../lib/full/qrlib.php'); 
-    include('config.php'); 
+    include('qrlib.php'); 
+    include('connection.php'); 
 
     // how to build raw content - QRCode with detailed Business Card (VCard) 
 
